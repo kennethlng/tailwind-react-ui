@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The tooltip-arrow styles are temporarily using these custom classes until we upgrade to Tailwind 3.0. */
+
+#tooltip-arrow,
+#tooltip-arrow::before {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background-color: #00010a;
+}
+
+#tooltip-arrow {
+  visibility: hidden;
+}
+
+#tooltip-arrow::before {
+  visibility: visible;
+  content: "";
+  transform: rotate(45deg);
+}

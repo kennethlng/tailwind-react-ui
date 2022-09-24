@@ -1,0 +1,51 @@
+{
+  "repository": "@freeflow/Nomadic",
+  "head": "update-design",
+  "rules": [
+    {
+      "name": "Design tokens",
+      "path": "src/styles/specifyTheme.js",
+      "filter": {
+        "types": ["color", "shadow", "gradient", "textStyle"]
+      },
+      "parsers": [
+        {
+          "name": "to-tailwind",
+          "options": {
+            "formatName": "kebabCase",
+            "formatTokens": {
+              "colorFormat": {
+                "format": "rgb"
+              }
+            },
+            "formatConfig": {
+              "objectName": "customTheme",
+              "module": "commonjs",
+              "singleQuote": true
+            },
+            "renameKeys": {
+              "backgroundImage": "background-image-{{name}}",
+              "borderColor": "border-color-{{name}}",
+              "borderOpacity": "border-opacity-{{name}}",
+              "borderRadius": "border-radius-{{name}}",
+              "borderWidth": "border-width-{{name}}",
+              "boxShadow": "box-shadow-{{name}}",
+              "colors": "colors-{{name}}",
+              "fontFamily": "font-family-{{name}}",
+              "fontSize": "font-size-{{name}}",
+              "fontWeight": "font-weight-{{name}}",
+              "letterSpacing": "letter-spacing-{{name}}",
+              "lineHeight": "line-height-{{name}}",
+              "opacity": "opacity-{{name}}",
+              "spacing": "spacing-{{name}}",
+              "textColor": "text-color-{{name}}",
+              "textOpacity": "text-opacity-{{name}}",
+              "transitionDuration": "transition-duration-{{name}}",
+              "zIndex": "z-index-{{name}}"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
