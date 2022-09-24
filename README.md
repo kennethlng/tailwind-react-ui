@@ -1,4 +1,4 @@
-# tailwind-react-components
+# tailwind-react-ui
 
 ## Installation
 
