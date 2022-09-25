@@ -1,5 +1,5 @@
 import { Listbox, Transition } from '@headlessui/react';
-import { ChevronDownDefaultIcon } from '@talkmore-inc/nomadic-icons';
+import { ChevronDownIcon } from '@heroicons/react/20/solid';
 import { Fragment } from 'react';
 import { classNames } from '../../utils/tailwind';
 import Form from '../Form';
@@ -40,7 +40,7 @@ function SelectBase(props: ISelectProps) {
             <Input
               endAdornment={
                 <Input.Adornment position="end" disablePointerEvents>
-                  <ChevronDownDefaultIcon
+                  <ChevronDownIcon
                     className="h-5 w-5 text-gray-400"
                     aria-hidden="true"
                   />
