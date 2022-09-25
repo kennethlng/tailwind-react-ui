@@ -1,4 +1,4 @@
-import { CloseCrossDefaultIcon } from '@talkmore-inc/nomadic-icons';
+import { XMarkIcon } from '@heroicons/react/20/solid';
 import { classNames } from '../../utils/tailwind';
 
 type ICloseButtonProps = {
@@ -24,7 +24,7 @@ function CloseButton({ onClick }: ICloseButtonProps) {
         onClick={onClick}
       >
         <span className="sr-only">Close</span>
-        <CloseCrossDefaultIcon className="h-6 w-6" aria-hidden="true" />
+        <XMarkIcon className="h-6 w-6" aria-hidden="true" />
       </button>
     </div>
   );
