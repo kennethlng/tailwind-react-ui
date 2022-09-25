@@ -6,17 +6,22 @@ import {
   WhitespaceClasses,
 } from '../../types/typography';
 import { classNames } from '../../utils/tailwind';
-import { ColorClasses, FontWeightVariant, VariantClasses } from './styles';
+import { ColorClass, VariantClass } from './styles';
 import { ITypographyColor, ITypographyVariant } from './types';
 
 const DefaultTagMap: Partial<
   Record<ITypographyVariant, keyof JSX.IntrinsicElements>
 > = {
+  h1: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  h4: 'h4',
   h5: 'h5',
   body1: 'p',
   body2: 'p',
-  body3: 'p',
-  subtitle: 'h6',
+  subtitle1: 'h6',
+  subtitle2: 'h6',
+  inherit: 'p',
 } as const;
 
 export type ITypographyProps = {
@@ -82,9 +87,8 @@ const Typography = forwardRef<HTMLElement, ITypographyProps>(
         ref={ref}
         className={classNames(
           'font-sans',
-          VariantClasses[variant],
-          ColorClasses[color],
-          FontWeightVariant(variant, bold),
+          VariantClass[variant],
+          ColorClass[color],
           truncate ? 'truncate' : '',
           align ? AlignClasses[align] : '',
           whitespace ? WhitespaceClasses[whitespace] : '',

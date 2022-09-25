@@ -1,35 +1,41 @@
 import { ComponentMeta } from '@storybook/react';
-import TypographyComponent, { ITypographyVariant} from '../components/Typography';
+import Typography, { ITypographyVariant } from '../components/Typography';
 
 const variantOptions: ITypographyVariant[] = [
+  'h1',
+  'h2',
+  'h3',
+  'h4',
   'h5',
   'body1',
   'body2',
-  'body3',
+  'subtitle1',
+  'subtitle2',
   'caption',
-  'captionMini',
   'overline',
-  'subtitle',
 ];
 
-const ContentMap: Record<ITypographyVariant, string> = {
-  h5: 'h5. Heading',
+const ContentMap: Partial<Record<ITypographyVariant, string>> = {
+  h1: 'h1. Heading 1',
+  h2: 'h2. Heading 2',
+  h3: 'h3. Heading 3',
+  h4: 'h4. Heading 4',
+  h5: 'h5. Heading 5',
   body1:
     'body1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.',
   body2:
     'body2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.',
-  body3:
-    'body3. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur unde suscipit, quam beatae rerum inventore consectetur, neque doloribus, cupiditate numquam dignissimos laborum fugiat deleniti? Eum quasi quidem quibusdam.',
   caption: 'caption text',
-  captionMini: 'caption text',
   overline: 'OVERLINE TEXT',
-  subtitle:
-    'subtitle. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
+  subtitle1:
+    'subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
+  subtitle2:
+    'subtitle2. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos blanditiis tenetur',
 } as const;
 
 export default {
   title: 'Components/Typography',
-  component: TypographyComponent,
+  component: Typography,
   argTypes: {
     variant: {
       control: { type: 'radio' },
@@ -38,9 +44,10 @@ export default {
     color: {
       control: { type: 'radio' },
       options: [
+        'textPrimary',
+        'textSecondary',
         'primary',
         'secondary',
-        'tertiary',
         'success',
         'info',
         'error',
@@ -74,11 +81,11 @@ export default {
       ],
     },
   },
-} as ComponentMeta<typeof TypographyComponent>;
+} as ComponentMeta<typeof Typography>;
 
 const Template = (args: any) => (
   <div style={{ maxWidth: 200 }}>
-    <TypographyComponent {...args} />
+    <Typography {...args} />
   </div>
 );
 
@@ -87,7 +94,6 @@ Playground.args = {
   variant: 'body1',
   children: 'This is some text',
   as: undefined,
-  bold: false,
   color: 'primary',
   truncate: false,
   whitespace: 'normal',
@@ -98,22 +104,20 @@ export const Sheet = () => (
   <div>
     {variantOptions.map((option) => (
       <div style={{ marginTop: 16 }}>
-        <TypographyComponent variant={option}>
-          {ContentMap[option]}
-        </TypographyComponent>
+        <Typography variant={option}>{ContentMap[option]}</Typography>
       </div>
     ))}
   </div>
 );
 
 export const Inline = () => (
-  <TypographyComponent variant="body1">
+  <Typography variant="body1">
     I am going to make an{' '}
-    <TypographyComponent variant="body1" bold as="span">
+    <Typography variant="body1" as="span">
       emphasis
-    </TypographyComponent>{' '}
+    </Typography>{' '}
     in this sentence.
-  </TypographyComponent>
+  </Typography>
 );
 
 export const Truncate = Template.bind({});
