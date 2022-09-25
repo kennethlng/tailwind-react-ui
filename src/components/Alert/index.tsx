@@ -1,10 +1,10 @@
-import {
-  CheckActiveIcon,
-  InfoActiveIcon,
-  StopActiveIcon,
-  WarningActiveIcon,
-} from '@talkmore-inc/nomadic-icons';
 import React from 'react';
+import {
+  CheckCircleIcon,
+  ExclamationTriangleIcon,
+  InformationCircleIcon,
+  XCircleIcon,
+} from '@heroicons/react/20/solid';
 import { classNames } from '../../utils/tailwind';
 import Paper from '../Paper';
 import Typography from '../Typography';
@@ -28,10 +28,10 @@ const IconMap: Record<
   IAlertColor,
   (props: React.SVGProps<SVGSVGElement>) => JSX.Element
 > = {
-  success: CheckActiveIcon,
-  error: StopActiveIcon,
-  info: InfoActiveIcon,
-  warning: WarningActiveIcon,
+  success: CheckCircleIcon,
+  error: XCircleIcon,
+  info: InformationCircleIcon,
+  warning: ExclamationTriangleIcon,
 } as const;
 
 const IconColorMap: Record<IAlertColor, string> = {
