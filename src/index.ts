@@ -1,7 +1,6 @@
 import './styles.css';
 
 export { default as Alert, IAlertProps } from './components/Alert';
-export { default as Animation } from './components/Animation';
 export {
   default as Avatar,
   IAvatarProps,
@@ -37,10 +36,6 @@ export { default as Chip, IChipProps } from './components/Chip';
 export { default as Container, IContainerProps } from './components/Container';
 export { default as Dialog, IDialogProps } from './components/Dialog';
 export { default as Form } from './components/Form';
-export {
-  default as GoogleSignInButton,
-  IGoogleSignInButtonProps,
-} from './components/GoogleSignInButton';
 export { default as Grid, IGridProps } from './components/Grid';
 export { IGridItem } from './components/Grid/Item';
 export {
@@ -51,12 +46,7 @@ export {
 export { default as Input, IInputProps } from './components/Input';
 export { default as Link, ILinkProps } from './components/Link';
 export { default as List } from './components/List';
-export { default as Layout, ILayoutProps } from './components/Layout';
 export { default as Menu } from './components/Menu';
-export {
-  default as MicrosoftSignInButton,
-  IMicrosoftSignInButtonProps,
-} from './components/MicrosoftSignInButton';
 export { default as Paper, IPaperProps } from './components/Paper';
 export {
   default as RadioGroup,
