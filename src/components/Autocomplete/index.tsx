@@ -1,9 +1,5 @@
 import { Fragment, useState } from 'react';
 import { Combobox, Transition } from '@headlessui/react';
-import {
-  ChevronDownActiveIcon,
-  CloseCrossActiveIcon,
-} from '@talkmore-inc/nomadic-icons';
 import Paper from '../Paper';
 import AutocompleteOption from './AutocompleteOption';
 import { IAutocompleteOption } from './types';
@@ -11,6 +7,7 @@ import Chip, { IChipProps } from '../Chip';
 import Form from '../Form';
 import Input from '../Input';
 import { classNames } from '../../utils/tailwind';
+import { ChevronDownIcon, XMarkIcon } from '@heroicons/react/20/solid';
 
 export type IAutocompleteProps = {
   options?: IAutocompleteOption[];
@@ -65,7 +62,7 @@ function AutocompleteBase(props: IAutocompleteProps) {
       value: IAutocompleteOption,
     ): Partial<IChipProps> => ({
       disabled,
-      secondaryActionIcon: <CloseCrossActiveIcon />,
+      secondaryActionIcon: <XMarkIcon />,
       onSecondaryActionClick: removeOption(value),
     });
 
@@ -106,7 +103,7 @@ function AutocompleteBase(props: IAutocompleteProps) {
             multiline
             endAdornment={
               <Combobox.Button>
-                <ChevronDownActiveIcon
+                <ChevronDownIcon
                   className="h-5 w-5 text-gray-400"
                   aria-hidden="true"
                 />

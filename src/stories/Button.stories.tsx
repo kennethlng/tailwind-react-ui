@@ -1,5 +1,5 @@
+import { BanknotesIcon, CheckIcon } from '@heroicons/react/20/solid';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { AlarmActiveIcon, CheckDefaultIcon } from '@talkmore-inc/nomadic-icons';
 import React from 'react';
 import ButtonComponent from '../components/Button';
 
@@ -59,6 +59,6 @@ WithIcons.args = {
   color: 'primary',
   disabled: false,
   children: 'Button',
-  startIcon: <AlarmActiveIcon className="h-7 w-7" />,
-  endIcon: <CheckDefaultIcon className="h-4 w-4" />,
+  startIcon: <BanknotesIcon className="h-7 w-7" />,
+  endIcon: <CheckIcon className="h-4 w-4" />,
 };

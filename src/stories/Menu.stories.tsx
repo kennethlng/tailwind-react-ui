@@ -1,15 +1,15 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import {
-  AlarmDisabledDefaultIcon,
-  CalendarDotsActiveIcon,
-  PhoneEndDefaultIcon,
-  SurveyActiveIcon,
-  VideoDefaultIcon,
-} from '@talkmore-inc/nomadic-icons';
 import React from 'react';
 import List from '../components/List';
 import Menu from '../components/Menu';
 import Avatar from '../components/Avatar';
+import {
+  CalendarDaysIcon,
+  ChartBarIcon,
+  CloudArrowUpIcon,
+  ScissorsIcon,
+  VideoCameraIcon,
+} from '@heroicons/react/20/solid';
 
 export default {
   title: 'Components/Menu',
@@ -41,28 +41,28 @@ const items = [
     handle: 'leonardkrasner',
     imageUrl:
       'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    icon: AlarmDisabledDefaultIcon,
+    icon: ScissorsIcon,
   },
   {
     name: 'Floyd Miles',
     handle: 'floydmiles',
     imageUrl:
       'https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    icon: VideoDefaultIcon,
+    icon: VideoCameraIcon,
   },
   {
     name: 'Emily Selman',
     handle: 'emilyselman',
     imageUrl:
       'https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    icon: SurveyActiveIcon,
+    icon: CloudArrowUpIcon,
   },
   {
     name: 'Kristin Watson',
     handle: 'kristinwatson',
     imageUrl:
       'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    icon: PhoneEndDefaultIcon,
+    icon: ChartBarIcon,
   },
 ];
 
@@ -73,7 +73,7 @@ Basic.args = {
   placement: 'bottom-start',
   children: (
     <Menu.IconButton>
-      <CalendarDotsActiveIcon className="h-8 w-8" />
+      <CalendarDaysIcon className="h-8 w-8" />
     </Menu.IconButton>
   ),
   items: (
@@ -92,7 +92,7 @@ WithAvatar.args = {
   placement: 'bottom-start',
   children: (
     <Menu.IconButton>
-      <CalendarDotsActiveIcon className="h-8 w-8" />
+      <CalendarDaysIcon className="h-8 w-8" />
     </Menu.IconButton>
   ),
   items: (
@@ -114,7 +114,7 @@ WithIcon.args = {
   placement: 'bottom-start',
   children: (
     <Menu.IconButton>
-      <CalendarDotsActiveIcon className="h-8 w-8" />
+      <CalendarDaysIcon className="h-8 w-8" />
     </Menu.IconButton>
   ),
   items: (

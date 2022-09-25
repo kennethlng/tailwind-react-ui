@@ -1,6 +1,4 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
-const customTheme = require('./src/styles/customTheme');
-const specifyTheme = require('./src/styles/specifyTheme');
 
 /** @type {import("@types/tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
@@ -15,10 +13,6 @@ module.exports = {
     screens: {
       xs: '475px',
       ...defaultTheme.screens,
-    },
-    extend: {
-      ...specifyTheme,
-      ...customTheme,
     },
   },
   variants: {

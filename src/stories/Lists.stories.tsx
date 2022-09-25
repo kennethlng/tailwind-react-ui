@@ -1,17 +1,19 @@
 import { ComponentMeta } from '@storybook/react';
-import {
-  AlarmDisabledDefaultIcon,
-  ChevronDownActiveIcon,
-  PhoneEndDefaultIcon,
-  SurveyActiveIcon,
-  VideoDefaultIcon,
-} from '@talkmore-inc/nomadic-icons';
 import React, { useState } from 'react';
 import List from '../components/List';
 import Avatar from '../components/Avatar';
 import Button from '../components/Button';
 import AvatarGroup from '../components/AvatarGroup';
 import IconButton from '../components/IconButton';
+import {
+  ChevronDownIcon,
+  ListBulletIcon,
+  MegaphoneIcon,
+  PaperClipIcon,
+  ScissorsIcon,
+  StarIcon,
+  WrenchScrewdriverIcon,
+} from '@heroicons/react/20/solid';
 
 export default {
   title: 'Components/Lists',
@@ -24,28 +26,28 @@ const listItems = [
     handle: 'leonardkrasner',
     imageUrl:
       'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    icon: AlarmDisabledDefaultIcon,
+    icon: MegaphoneIcon,
   },
   {
     name: 'Floyd Miles',
     handle: 'floydmiles',
     imageUrl:
       'https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    icon: VideoDefaultIcon,
+    icon: PaperClipIcon,
   },
   {
     name: 'Emily Selman',
     handle: 'emilyselman',
     imageUrl:
       'https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    icon: SurveyActiveIcon,
+    icon: StarIcon,
   },
   {
     name: 'Kristin Watson',
     handle: 'kristinwatson',
     imageUrl:
       'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-    icon: PhoneEndDefaultIcon,
+    icon: WrenchScrewdriverIcon,
   },
 ];
 
@@ -54,7 +56,7 @@ export const Basic = () => (
     <List.Subheader
       secondaryAction={
         <IconButton>
-          <ChevronDownActiveIcon className="h-5 w-5" />
+          <MegaphoneIcon className="h-5 w-5" />
         </IconButton>
       }
     >
@@ -73,7 +75,7 @@ export const WithAvatar = () => (
     <List.Subheader
       secondaryAction={
         <IconButton>
-          <ChevronDownActiveIcon className="h-5 w-5" />
+          <PaperClipIcon className="h-5 w-5" />
         </IconButton>
       }
     >
@@ -95,7 +97,7 @@ export const WithIcon = () => (
     <List.Subheader
       secondaryAction={
         <IconButton>
-          <ChevronDownActiveIcon className="h-5 w-5" />
+          <WrenchScrewdriverIcon className="h-5 w-5" />
         </IconButton>
       }
     >
@@ -117,7 +119,7 @@ export const WithAction = () => (
     <List.Subheader
       secondaryAction={
         <IconButton>
-          <ChevronDownActiveIcon className="h-5 w-5" />
+          <ScissorsIcon className="h-5 w-5" />
         </IconButton>
       }
     >
@@ -146,7 +148,7 @@ export const WithNonstringValues = () => (
     <List.Subheader
       secondaryAction={
         <IconButton>
-          <ChevronDownActiveIcon className="h-5 w-5" />
+          <ChevronDownIcon className="h-5 w-5" />
         </IconButton>
       }
     >
@@ -177,7 +179,7 @@ export const AsButtons = () => {
       <List.Subheader
         secondaryAction={
           <IconButton>
-            <ChevronDownActiveIcon className="h-5 w-5" />
+            <ListBulletIcon className="h-5 w-5" />
           </IconButton>
         }
       >
