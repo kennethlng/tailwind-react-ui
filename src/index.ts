@@ -16,10 +16,6 @@ export {
   IAutocompleteOption,
 } from './components/Autocomplete';
 export {
-  default as AvatarGroupGrid,
-  IAvatarGroupGridProps,
-} from './components/AvatarGroupGrid';
-export {
   default as Badge,
   IBadgePosition,
   IBadgeProps,
