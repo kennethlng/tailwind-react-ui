@@ -4,7 +4,6 @@ import { cloneElement, useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { classNames } from '../../utils/tailwind';
 import Typography from '../Typography';
-import { DisplayPriority, IDisplayPriority } from '../../types/zIndex';
 
 export type ITooltipProps = {
   children: React.ReactElement<any, string | React.JSXElementConstructor<any>>;
@@ -19,7 +18,6 @@ export type ITooltipProps = {
    * Tooltip text. Zero-length text string are never displayed.
    */
   text?: string;
-  displayPriority?: IDisplayPriority;
 };
 
 export const getArrowOffsetClass = (
@@ -44,12 +42,7 @@ export const getArrowOffsetClass = (
   return '';
 };
 
-function Tooltip({
-  children,
-  placement = 'top',
-  text = '',
-  displayPriority = 'tooltip',
-}: ITooltipProps) {
+function Tooltip({ children, placement = 'top', text = '' }: ITooltipProps) {
   const [isShowing, setIsShowing] = useState(false);
   const [referenceElement, setReferenceElement] =
     useState<HTMLElement | null>(null);
@@ -107,10 +100,7 @@ function Tooltip({
         createPortal(
           <div
             role="tooltip"
-            className={classNames(
-              'bg-opacity-opacity-base-8',
-              DisplayPriority[displayPriority],
-            )}
+            className={classNames('bg-opacity-opacity-base-8', 'z-10')}
             ref={setPopperElement}
             style={styles.popper}
             // eslint-disable-next-line react/jsx-props-no-spreading
@@ -124,7 +114,7 @@ function Tooltip({
               )}
             >
               <Typography
-                variant="body3"
+                variant="body2"
                 color="inherit"
                 className="text-white"
               >
@@ -137,10 +127,7 @@ function Tooltip({
               id="tooltip-arrow"
               data-popper-arrow
               ref={setArrowElement}
-              className={classNames(
-                getArrowOffsetClass(placement),
-                DisplayPriority[displayPriority],
-              )}
+              className={classNames(getArrowOffsetClass(placement), 'z-10')}
               style={styles.arrow}
             />
           </div>,

@@ -1,12 +1,8 @@
+import { BanknotesIcon, XMarkIcon } from '@heroicons/react/20/solid';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import Avatar from '../components/Avatar';
 import Chip from '../components/Chip';
-import IconButton from '../components/IconButton';
-import {
-  AlarmDefaultIcon,
-  CloseCrossDefaultIcon,
-} from '@talkmore-inc/nomadic-icons';
 
 export default {
   title: 'Components/Chip',
@@ -39,7 +35,7 @@ WithSecondaryAction.args = {
       size="px24"
     />
   ),
-  secondaryActionIcon: <CloseCrossDefaultIcon />,
+  secondaryActionIcon: <XMarkIcon />,
   color: 'primary',
   disabled: false,
 };
@@ -60,7 +56,7 @@ WithAvatar.args = {
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
-  icon: <AlarmDefaultIcon />,
+  icon: <BanknotesIcon />,
   label: 'Icon',
   color: 'primary',
   disabled: false,

@@ -1,5 +1,5 @@
 import { Listbox } from '@headlessui/react';
-import { CheckDefaultIcon } from '@talkmore-inc/nomadic-icons';
+import { CheckIcon } from '@heroicons/react/20/solid';
 import React from 'react';
 import List from '../List';
 import { ISelectOption } from './types';
@@ -20,7 +20,7 @@ const SelectOption = React.forwardRef<HTMLLIElement, ISelectOptionProps>(
             <List.Item.Text primary={children} />
             {selected ? (
               <List.Item.SecondaryAction>
-                <CheckDefaultIcon className="h-5 w-5" aria-hidden="true" />
+                <CheckIcon className="h-5 w-5" aria-hidden="true" />
               </List.Item.SecondaryAction>
             ) : null}
           </List.Item.Button>

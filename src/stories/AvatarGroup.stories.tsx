@@ -1,106 +1,65 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import AvatarGroupComponent from '../components/AvatarGroup';
+import React from 'react';
 import Avatar from '../components/Avatar';
-import Tooltip from '../components/Tooltip';
-import luffyHeadshot from './assets/luffy.png';
-import zoloHeadshot from './assets/zolo.png';
-import namiHeadshot from './assets/nami.png';
-import usoppHeadshot from './assets/usopp.png';
-import sanjiHeadshot from './assets/sanji.png';
-import chopperHeadshot from './assets/chopper.png';
+import AvatarGroup from '../components/AvatarGroup';
 
 export default {
   title: 'Components/AvatarGroup',
-  component: AvatarGroupComponent,
+  component: AvatarGroup,
   argTypes: {
     max: {
-      control: { type: 'number' },
+      control: 'number',
     },
     extraTooltip: {
-      control: { type: 'text' },
+      control: 'text',
+    },
+    spacing: {
+      control: { type: 'radio' },
     },
   },
-} as ComponentMeta<typeof AvatarGroupComponent>;
+} as ComponentMeta<typeof AvatarGroup>;
+
+const Template: ComponentStory<typeof AvatarGroup> = (args) => (
+  <AvatarGroup {...args} />
+);
 
 const users = [
   {
-    id: '1',
-    imageSrc: luffyHeadshot,
-    displayName: 'Monkey D. Luffy',
+    name: 'Jane Cooper',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
   },
   {
-    id: '2',
-    imageSrc: zoloHeadshot,
-    displayName: 'Roronoa Zolo',
+    name: 'Jane Cooper 2',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
   },
   {
-    id: '3',
-    imageSrc: namiHeadshot,
-    displayName: 'Nami',
+    name: 'Jane Cooper 3',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
   },
   {
-    id: '4',
-    imageSrc: usoppHeadshot,
-    displayName: 'Usopp',
+    name: 'Jane Cooper 4',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
   },
   {
-    id: '5',
-    imageSrc: sanjiHeadshot,
-    displayName: 'Sanji',
+    name: 'Jane Cooper 5',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
   },
   {
-    id: '6',
-    imageSrc: chopperHeadshot,
-    displayName: 'Tony Tony Chopper',
+    name: 'Jane Cooper 6',
+    imageUrl:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60',
   },
 ];
 
-const Template: ComponentStory<typeof AvatarGroupComponent> = (args: any) => (
-  <AvatarGroupComponent {...args} />
-);
-
-export const Basic = Template.bind({});
-Basic.args = {
-  max: 5,
+export const Playground = Template.bind({});
+Playground.args = {
   children: users.map((user) => (
-    <Avatar
-      key={user.id}
-      imageSrc={user.imageSrc}
-      displayName={user.displayName}
-      alt={user.displayName}
-    />
+    <Avatar key={user.name} alt={user.name} src={user.imageUrl} />
   )),
-  avatarProps: {
-    size: 'px64',
-    shadow: true,
-    border: true,
-  },
-};
-
-export const WithTooltip = Template.bind({});
-WithTooltip.args = {
-  max: 5,
-  children: users.map((user) => (
-    <Tooltip key={user.id} text={user.displayName}>
-      <Avatar
-        imageSrc={user.imageSrc}
-        displayName={user.displayName}
-        alt={user.displayName}
-      />
-    </Tooltip>
-  )),
-  extraTooltip: users
-    .slice(4)
-    .map((user) => user.displayName)
-    .join(', '),
-  avatarProps: {
-    size: 'px64',
-    shadow: true,
-    border: true,
-  },
-};
-
-export const NoAvatars = Template.bind({});
-NoAvatars.args = {
-  children: null,
+  spacing: 'md',
 };

@@ -1,7 +1,6 @@
 import './styles.css';
 
 export { default as Alert, IAlertProps } from './components/Alert';
-export { default as Animation } from './components/Animation';
 export {
   default as Avatar,
   IAvatarProps,
@@ -10,16 +9,14 @@ export {
 export {
   default as AvatarGroup,
   IAvatarGroupProps,
+  IAvatarGroupSpacing,
+  AvatarGroupSpacingClass,
 } from './components/AvatarGroup';
 export {
   default as Autocomplete,
   IAutocompleteProps,
   IAutocompleteOption,
 } from './components/Autocomplete';
-export {
-  default as AvatarGroupGrid,
-  IAvatarGroupGridProps,
-} from './components/AvatarGroupGrid';
 export {
   default as Badge,
   IBadgePosition,
@@ -37,10 +34,6 @@ export { default as Chip, IChipProps } from './components/Chip';
 export { default as Container, IContainerProps } from './components/Container';
 export { default as Dialog, IDialogProps } from './components/Dialog';
 export { default as Form } from './components/Form';
-export {
-  default as GoogleSignInButton,
-  IGoogleSignInButtonProps,
-} from './components/GoogleSignInButton';
 export { default as Grid, IGridProps } from './components/Grid';
 export { IGridItem } from './components/Grid/Item';
 export {
@@ -51,12 +44,7 @@ export {
 export { default as Input, IInputProps } from './components/Input';
 export { default as Link, ILinkProps } from './components/Link';
 export { default as List } from './components/List';
-export { default as Layout, ILayoutProps } from './components/Layout';
 export { default as Menu } from './components/Menu';
-export {
-  default as MicrosoftSignInButton,
-  IMicrosoftSignInButtonProps,
-} from './components/MicrosoftSignInButton';
 export { default as Paper, IPaperProps } from './components/Paper';
 export {
   default as RadioGroup,
@@ -78,7 +66,3 @@ export { default as useBreakpoint } from './hooks/useBreakpoint';
 export { default as usePagination } from './hooks/usePagination';
 export { default as useWindowDimensions } from './hooks/useWindowDimensions';
 export { IBreakpoint, BreakpointWidths } from './types/breakpoint';
-export {
-  ISize as IBubbleSize,
-  IVariant as IBubbleVariant,
-} from './types/bubble';

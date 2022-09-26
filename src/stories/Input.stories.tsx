@@ -1,8 +1,8 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react';
 import {
-  AlarmDoneActiveIcon,
-  ExitLeaveSignoutActiveIcon,
-} from '@talkmore-inc/nomadic-icons';
+  InformationCircleIcon,
+  MagnifyingGlassIcon,
+} from '@heroicons/react/20/solid';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 import Input from '../components/Input';
 
@@ -34,7 +34,7 @@ WithStartAdornment.args = {
   placeholder: 'Input your name here',
   startAdornment: (
     <Input.Adornment position="start">
-      <ExitLeaveSignoutActiveIcon className="h-5 w-5" />
+      <InformationCircleIcon className="h-5 w-5" />
     </Input.Adornment>
   ),
   error: false,
@@ -47,7 +47,7 @@ WithEndAdornment.args = {
   placeholder: 'Input your name here',
   endAdornment: (
     <Input.Adornment position="end">
-      <AlarmDoneActiveIcon className="h-5 w-5 text-gray-400" />
+      <MagnifyingGlassIcon className="h-5 w-5 text-gray-400" />
     </Input.Adornment>
   ),
   error: false,

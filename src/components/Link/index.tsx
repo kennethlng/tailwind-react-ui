@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { classNames } from '../../utils/tailwind';
 import { ITypographyVariant } from '../Typography';
-import { FontWeightVariant, VariantClasses } from '../Typography/styles';
+import { FontWeightVariant, VariantClass } from '../Typography/styles';
 
 export type ILinkProps = {
   variant?: ITypographyVariant;
@@ -17,7 +17,7 @@ const Link = forwardRef<HTMLAnchorElement, ILinkProps>(
     return (
       <a
         className={classNames(
-          VariantClasses[variant],
+          VariantClass[variant],
           FontWeightVariant(variant, false),
           'underline',
           'text-colors-link-primary-default',

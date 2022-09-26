@@ -1,8 +1,7 @@
-import React, { forwardRef, useEffect, useState } from 'react';
-import { Colors } from './styles';
-import { IColor } from './types';
-import { ISize, Sizes } from '../../types/bubble';
+import React, { forwardRef } from 'react';
 import { classNames } from '../../utils/tailwind';
+import { AvatarSize } from './styles';
+import { IAvatarSize } from './types';
 
 export type IAvatarProps = {
   /**
@@ -13,7 +12,7 @@ export type IAvatarProps = {
   /**
    * The size of the avatar.
    */
-  size?: ISize;
+  size?: IAvatarSize;
   /**
    * Used in combination with `src` to provide an
    * alt attribute for the rendered `img` element.
@@ -24,19 +23,6 @@ export type IAvatarProps = {
    */
   src?: string;
   /**
-   * The color applied to the text and background of the avatar
-   * if no `img` is set.
-   */
-  color?: IColor;
-  /**
-   * If true, applies a white border around the avatar.
-   */
-  border?: boolean;
-  /**
-   * If true, applies a shadow behind the avatar.
-   */
-  shadow?: boolean;
-  /**
    * Custom classes for the avatar root component.
    */
   className?: string;
@@ -44,28 +30,10 @@ export type IAvatarProps = {
 
 type IAvatarRoot = {
   children: React.ReactNode;
-} & Pick<IAvatarProps, 'size' | 'color' | 'border' | 'shadow' | 'className'>;
-
-function getRandomColor(): IColor {
-  const colorOptionsArr: IColor[] = Object.keys(Colors).map(Number) as IColor[];
-  const randomIndex = Math.floor(Math.random() * colorOptionsArr.length);
-  return colorOptionsArr[randomIndex];
-}
-
-function getColorFromAlt(alt: string): IColor {
-  let charValue = 0;
-  for (let i = 0; i < alt.length; i += 1) {
-    charValue += alt.charCodeAt(i);
-  }
-  const val = (Math.abs(charValue % 10) + 1) as IColor;
-  return val;
-}
+} & Pick<IAvatarProps, 'size' | 'className'>;
 
 const AvatarRoot = forwardRef<HTMLDivElement, IAvatarRoot>(
-  (
-    { children, size = 'px40', color, border, shadow, className }: IAvatarRoot,
-    ref,
-  ) => (
+  ({ children, size = 'md', className }: IAvatarRoot, ref) => (
     <div
       ref={ref}
       className={classNames(
@@ -74,15 +42,11 @@ const AvatarRoot = forwardRef<HTMLDivElement, IAvatarRoot>(
         'items-center',
         'justify-center',
         'shrink-0',
-        Sizes[size],
+        AvatarSize[size],
         'rounded-full',
         'overflow-hidden',
         'select-none',
-        color ? Colors[color] : 'bg-white',
-        border
-          ? 'border-border-width-base-0.7 border-colors-border-light-default'
-          : '',
-        shadow && 'shadow-box-shadow-medium-shadow',
+        'bg-gray-200',
         className,
       )}
     >
@@ -113,59 +77,30 @@ function AvatarImg({ alt, src }: IAvatarImg) {
   );
 }
 
-const Avatar = forwardRef<any, IAvatarProps>((props: IAvatarProps, ref) => {
-  const {
-    src,
-    alt,
-    children: childrenProp,
-    size,
-    color: colorProp,
-    border,
-    shadow,
-    className,
-  } = props;
+const Avatar = forwardRef<HTMLDivElement, IAvatarProps>(
+  (props: IAvatarProps, ref) => {
+    const { src, alt, children: childrenProp, size, className } = props;
 
-  let children = null;
+    let children = null;
 
-  const [color, setColor] = useState<IColor | undefined>(undefined);
-
-  useEffect(() => {
     if (src) {
-      setColor(undefined);
-    } else if (colorProp) {
-      setColor(colorProp);
+      children = <AvatarImg alt={alt} src={src} />;
+    } else if (childrenProp != null) {
+      children = childrenProp;
     } else if (alt) {
-      setColor(getColorFromAlt(alt));
+      children = alt[0];
     } else {
-      setColor(getRandomColor());
+      children = null;
     }
-  }, [colorProp, src, alt]);
 
-  if (src) {
-    children = <AvatarImg alt={alt} src={src} />;
-  } else if (childrenProp != null) {
-    children = childrenProp;
-  } else if (alt) {
-    // eslint-disable-next-line prefer-destructuring
-    children = alt[0];
-  } else {
-    children = null;
-  }
+    return (
+      <AvatarRoot ref={ref} size={size} className={className}>
+        {children}
+      </AvatarRoot>
+    );
+  },
+);
 
-  return (
-    <AvatarRoot
-      ref={ref}
-      size={size}
-      color={color}
-      border={border}
-      shadow={shadow}
-      className={className}
-    >
-      {children}
-    </AvatarRoot>
-  );
-});
-
-export { ISize as IAvatarSize };
+export { IAvatarSize };
 
 export default Avatar;
