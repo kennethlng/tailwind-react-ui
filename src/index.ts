@@ -64,7 +64,3 @@ export { default as useBreakpoint } from './hooks/useBreakpoint';
 export { default as usePagination } from './hooks/usePagination';
 export { default as useWindowDimensions } from './hooks/useWindowDimensions';
 export { IBreakpoint, BreakpointWidths } from './types/breakpoint';
-export {
-  ISize as IBubbleSize,
-  IVariant as IBubbleVariant,
-} from './types/bubble';
