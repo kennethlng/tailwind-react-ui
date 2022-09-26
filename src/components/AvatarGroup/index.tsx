@@ -3,6 +3,14 @@ import { classNames } from '../../utils/tailwind';
 import Avatar, { IAvatarProps } from '../Avatar';
 import Tooltip from '../Tooltip';
 
+export type IAvatarGroupSpacing = 'sm' | 'md' | 'lg';
+
+export const AvatarGroupSpacingClass: Record<IAvatarGroupSpacing, string> = {
+  sm: '-space-x-3',
+  md: '-space-x-2',
+  lg: '-space-x-1',
+} as const;
+
 export type IAvatarGroupProps = {
   /**
    * The avatars to stack.
@@ -24,7 +32,11 @@ export type IAvatarGroupProps = {
   /**
    * Props for the avatar elements.
    */
-  avatarProps?: Pick<IAvatarProps, 'border' | 'size' | 'shadow' | 'className'>;
+  avatarProps?: Pick<IAvatarProps, 'size' | 'className'>;
+  /**
+   * Spacing between avatars.
+   */
+  spacing?: IAvatarGroupSpacing;
 };
 
 function AvatarGroup({
@@ -33,6 +45,7 @@ function AvatarGroup({
   className,
   extraTooltip,
   avatarProps,
+  spacing = 'md',
 }: IAvatarGroupProps): React.ReactElement {
   let clampedMax = max < 2 ? 2 : max;
 
@@ -59,8 +72,8 @@ function AvatarGroup({
     <div
       className={classNames(
         'flex',
-        'justify-start',
-        'space-x-spacing-base-4',
+        AvatarGroupSpacingClass[spacing],
+        'overflow-hidden',
         className,
       )}
     >
@@ -69,20 +82,23 @@ function AvatarGroup({
         .reverse()
         .map((child) =>
           cloneElement(child as React.ReactElement<any>, {
-            border: avatarProps && avatarProps.border,
-            shadow: avatarProps && avatarProps.shadow,
             size: avatarProps && avatarProps.size,
-            className: avatarProps && avatarProps.className,
+            className: classNames(
+              'ring-2',
+              'ring-white',
+              avatarProps && avatarProps.className,
+            ),
           }),
         )}
       {extraAvatars ? (
         <Tooltip text={extraTooltip} placement="top">
           <Avatar
-            color={1}
-            border={avatarProps && avatarProps.border}
-            shadow={avatarProps && avatarProps.shadow}
             size={avatarProps && avatarProps.size}
-            className={avatarProps && avatarProps.className}
+            className={classNames(
+              'ring-2',
+              'ring-white',
+              avatarProps && avatarProps.className,
+            )}
           >{`+${extraAvatars.toString()}`}</Avatar>
         </Tooltip>
       ) : null}

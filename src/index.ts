@@ -9,6 +9,8 @@ export {
 export {
   default as AvatarGroup,
   IAvatarGroupProps,
+  IAvatarGroupSpacing,
+  AvatarGroupSpacingClass,
 } from './components/AvatarGroup';
 export {
   default as Autocomplete,
